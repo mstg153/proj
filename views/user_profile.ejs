@@ -1,4 +1,4 @@
-<h1>
+<!-- <h1>
     Profile Page
 </h1>
 
@@ -14,4 +14,163 @@
     <a href= "../users/verifyexp">verify experience</a><br>
     <a href= "../users/verifyusers">verify USERS</a>
 <%}%>
-<p><%= user.role %></p>
+<p><%= user.role %></p> -->
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Birthstone&family=Dancing+Script:wght@400;500&family=Oswald:wght@300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&family=Yaldevi:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/user.css" />
+  </head>
+  <body>
+    <!-- <div class="text-center" id="preloader">
+      <div class="row">
+        <div class="col-sm-2">
+          <div id="wave1"></div>
+        </div>
+      </div> 
+    </div> -->
+
+    
+    <!-- User Details Section -->
+    <section class="user-details">
+      <!-- <div> -->
+      <div class="user-image">
+        <!-- <div class="user-img-cont"> -->
+          <img src="../assets/img/vug.jpg" alt="" />
+        <!-- </div> -->
+      </div>
+      <div class="user-desctiption">
+        <div>
+          <p><span class="emp-id">Enrollment ID: </span><%=user.enroll%></p>
+        </div>
+        <div>
+          <p><span class="name">Name: </span><%=user.name%></p>
+        </div>
+        <div>
+          <p>
+            <span class="department">Department: </span><%= user.department%>
+          </p>
+        </div>
+        <div>
+          <p>
+            <span class="emailId">Email: </span><%=user.email%>
+          </p>
+        </div>
+        <div>
+          <!-- <p><span class="phone-number">Phone</span> +91 1234567890</p>
+        </div> -->
+        <div class="buttons">
+          <a href="../Article/article.html">Publish an article</a>
+        </div>
+      </div>
+      <!-- </div> -->
+    </section>
+
+    <!-- Articles section  -->
+    <section class="articles-section">
+      <div class="section-heading">
+        <h1>Top Articles</h1>
+      </div>
+      <div class="section-body">
+        <div class="article-cards-section">
+          <div class="article-card">
+            <div class="article-content">
+              <div>
+                <div class="article-name"><h2>Article Title</h2></div>
+                <div class="article-desctiption">
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Quo, beatae <a href="../Article/read_articles.html">read more ...</a>
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div class="article-publisher">Sai Teja</div>
+                <div class="published-date">20 Sept, 2021</div>
+              </div>
+            </div>
+            <div class="article-image">
+              <img src="../assets/img/002.jpg" alt="" />
+            </div>
+          </div>
+
+          <div class="article-card">
+            <div class="article-content">
+              <div>
+                <div class="article-name"><h2>Article Title</h2></div>
+                <div class="article-desctiption">
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Quo, beatae <a href="../Article/read_articles.html">read more ...</a>
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div class="article-publisher">Sai Teja</div>
+                <div class="published-date">20 Sept, 2021</div>
+              </div>
+            </div>
+            <div class="article-image">
+              <img src="../assets/img/002.jpg" alt="" />
+            </div>
+          </div>
+
+          <div class="article-card">
+            <div class="article-content">
+              <div>
+                <div class="article-name"><h2>Article Title</h2></div>
+                <div class="article-desctiption">
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Quo, beatae <a href="../Article/read_articles.html">read more ...</a>
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div class="article-publisher">Sai Teja</div>
+                <div class="published-date">20 Sept, 2021</div>
+              </div>
+            </div>
+            <div class="article-image">
+              <img src="../assets/img/002.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="quotes-section">
+          <div class="for-bg">
+            <!-- <img src="../assets/img/quote.jpg" alt=""> -->
+          </div>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+              voluptate.
+            </p>
+            <cite>- John Wick</cite>
+          </div>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+              voluptate.
+            </p>
+            <cite>- John Wick</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="copyright">Copyright &copy; group 13</p>
+    </footer>    <script src="/js/indexjs.js"></script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 <header id="layout-header">
-    <nav>
+    <!-- <nav>
         <div class="mini-logo">
             <p>
                 <a href='/'>
@@ -28,8 +28,39 @@
                 <% } %>
             </ul>
         </div>
-    </nav>
+    </nav> -->
  
-
+    <div class="navbar">
+        <nav>
+          <div id="hamburger">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+          <!-- <div class="logo-section">
+            <img src="../Logo 5.svg" alt="" />
+          </div>  -->
+          <ul id="nav-list">
+            <%if(locals.user){%>
+            <li class="for-small">
+              <div class="profile">
+                <img src="../assets/img/vug.jpg" alt="" />
+                <p class="user-name"><%=user.name%></p>
+                <p class="user-desig"><%=user.department%>- <%= user.yearofGraduation%></p>
+              </div>
+            </li>
+            <%}%>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users/profile">Profile</a></li>
+            <li><a href="/read_articles">Read</a></li>
+            <li><a href="/users/form">Publish</a></li>
+            <%if(!locals.user){%>
+                <li><a href="/users/sign-in">sign-in</a></li>
+            <%}else{%>
+                <li><a href="/users/sign-out">Sign Out</a></li>
+            <%}%>
+          </ul>
+        </nav> 
+      </div>
 
 </header>

@@ -12,7 +12,7 @@ module.exports.profile = function(req, res){
 
 module.exports.form = function(req, res){
     if(!req.isAuthenticated()){
-        return res.redirect('users/sign-in');
+        return res.redirect('/users/sign-in');
     }
     return res.render('form', {
         title: 'Experience Form'
@@ -27,7 +27,7 @@ module.exports.signUp = function(req, res){
 
 
     return res.render('user_sign_up', {
-        title: "Codeial | Sign Up"
+        title: " Sign Up"
     })
 }
 
@@ -39,7 +39,7 @@ module.exports.signIn = function(req, res){
         return res.redirect('/users/profile');
     }
     return res.render('user_sign_in', {
-        title: "Codeial | Sign In"
+        title: "Sign In"
     })
 }
 

@@ -1,0 +1,148 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Yaldevi:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    /> 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/index.css" /> 
+  </head>
+  <body>
+    <!-- <div class="text-center" id="preloader">
+      <div class="row"> 
+        <div class="col-sm-2">
+          <div id="wave1"></div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- LOGIN MODAL  -->
+    <div class="modal-container-1" >
+      <div class="modal">
+          <div class="modal-head">
+              <!-- <a href="#" id="modal-close-btn">close</a> -->
+              <div class="head-btns">
+                  <!-- <a href="#" class="login-btn"> login</a>
+                  <a href="#" class="signup-btn">Signup</a> -->
+                  <h3>LOGIN FORM</h3>
+              </div>
+          </div>
+          <div class="modal-body">
+            <form action="./Users/user.html">
+              <div class="input">
+                <input type="email" class="input-field" required />
+                <label for="" class="input-label">Email ID</label>
+              </div>
+              <br />
+              <div class="input">
+                <input type="password" class="input-field" required />
+                <label for="" class="input-label">Password</label>
+              </div>
+              <div class="input">
+                <p>Don't have an account?? <a href="#"> contact Admin</a></p>
+                <p>Forgot password ? <a href="#"> contact Admin</a></p>
+              </div>
+              <div class="foot-btns">
+                <!-- <a type="submit" href="./Users/user.html" class="login-btn"> Login</a> -->
+                <button type="submit" class="login-btn"> Login</button>
+                <a href="#" id="modal-close-btn">cancel</a>
+            </div>
+            </form>
+          </div>
+      </div>
+  </div>
+
+    <nav >
+      <div id="hm">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+      </div> 
+      <div class="logo-section">
+        <img src="./Logo 6.svg" alt=""  width="300"/>
+      </div>
+      <ul class="list"> 
+        <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Creators</a></li>
+          <li><a href="mailto:shamgarstaines555@gmail.com">Contact Us</a></li>
+      </ul>
+      <div class="bg" ></div>
+    </nav>
+
+    <header>
+      <video id="vbg" loop autoplay>
+        <source src="./assets/vid/bg1 (1) (1).mp4" type="video/mp4" />
+        <source src="./assets/vid/bg1.ogg" type="video/ogg" />
+      </video>
+      <div class="header-overlay"></div>
+      <div class="header-content">
+        <div class="heading">
+          <h1>Welcome !!</h1>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero hic
+            quae recusandae quisquam optio officia maxime doloremque ex
+            cupiditate unde.
+          </p>
+          <div class="buttons">
+            <a href="/read_articles">Read Articles</a>
+            <%if(!locals.user){%>
+              <a href="/users/sign-up" id="signUpModal">Login / signup</a>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="about-section">
+      <div class="image-section">
+        <img src="./assets/img/002.jpg" alt="" />
+      </div>
+      <div class="desctiption-section">
+        <h1>What will you find here ?</h1>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+          magni quisquam dolores doloremque, expedita voluptate, accusamus quo
+          voluptatem voluptatibus libero exercitationem fugit eos! Perspiciatis
+          reprehenderit eveniet labore nemo porro! Omnis?
+        </p>
+        <div class="buttons">
+          <a href="/read_articles">Read Articles</a>
+        </div>
+      </div>
+      
+    </section>
+
+    <section class="vision-section">
+      <div class="desctiption-section">
+        <h1>OUR VISION</h1>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+          magni quisquam dolores doloremque, expedita voluptate, accusamus quo
+          voluptatem voluptatibus libero exercitationem fugit eos! Perspiciatis
+          reprehenderit eveniet labore nemo porro! Omnis?
+        </p>
+      </div>
+      <div class="image-section">
+        <img src="./assets/img/003.jpg" alt="" />
+      </div>
+    </section>
+
+    <footer>
+      <p class="copyright">Copyright &copy; group 13</p>
+    </footer>
+
+    <!-- scripts -->
+    <script src="/js/scripts.js"></script>
+  </body>
+</html>
