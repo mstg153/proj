@@ -8,7 +8,9 @@
     <p> Student </p>
 <%}else if(user.role == 1){%>
     <p> Reviewer </p>
+    <a href= "../users/verifyexp">verify experience</a>
 <%}else{%>
     <p>ADMIN</p>
+    <a href= "../users/verifyexp">verify experience</a>
 <%}%>
 <p><%= user.role %></p>

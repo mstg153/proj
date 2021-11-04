@@ -82,3 +82,58 @@ module.exports.destroySession = function(req, res){
 
     return res.redirect('/');
 }
+
+module.exports.verifyexp = function(req,res){
+
+    if(!req.isAuthenticated()){
+        return res.redirect('back');
+    }
+        // if(user.role==0){
+        //     return res.redirect('back');
+        // }
+        // else{
+        //     return res.render('unverified',{
+        //         title:"VErify EXP",
+        //     });
+        Experience.find({}).populate('user').exec(function(err,exp){
+            return res.render('unverified', {
+                title: "UNIVERIFIED",
+                Experience: exp,
+            });
+        });
+}
+module.exports.deleted = function(req,res){
+    if(!req.isAuthenticated()){
+        return res.redirect('back');
+    }
+    let id = req.query.id;
+    Experience.findByIdAndDelete(id,function(err){
+        if(err){
+            console.log("error in deleting");
+            return;
+        }
+        return res.redirect('back');
+    })
+}
+module.exports.verified = function(req,res){
+    console.log("in deleting");
+    if(!req.isAuthenticated()){
+        return res.redirect('back');
+    }
+    let id = req.query.id;
+    console.log(id);
+    Experience.findOneAndUpdate(id,{status:1},function(err){
+        if(err){
+            console.log("error in deleting");
+            return;
+        }
+        return res.redirect('back');
+    });
+    // Experience.findByIdAndDelete(id,function(err){
+    //     if(err){
+    //         console.log("error in deleting");
+    //         return;
+    //     }
+    //     return res.redirect('back');
+    // })
+}

@@ -1,0 +1,20 @@
+<h1>UNVerified</h1>
+<%if(user.role == 0){%>
+<p> " you are not eligible to do this " </p>
+<%}else{%>
+    <ul>
+        <%for (exp of Experience){%>
+            <%if(exp.status == 0){%>
+            <li>
+                
+                <p><%= exp.Company_Name%> | <%=exp.Student_Name %>
+                    <small><%= exp.Student_Name%></small>
+                </p>
+                <!-- <a href="/verify"><button type="button"></button></a> -->
+                <button type="submit"><a href="../users/delete/?id=<%= exp._id%>">delete</a></button>
+                <button type="submit"><a href="../users/good/?id=<%= exp._id%>">Tick as Verified</a></button>
+            </li>
+            <%}%>
+        <%}%>
+    </ul>
+<%}%>
