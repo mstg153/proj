@@ -137,3 +137,54 @@ module.exports.verified = function(req,res){
     //     return res.redirect('back');
     // })
 }
+
+module.exports.verifyuser = function(req,res){
+
+    if(!req.isAuthenticated()){
+        return res.redirect('back');
+    }
+        // if(user.role==0){
+        //     return res.redirect('back');
+        // }
+        // else{
+        //     return res.render('unverified',{
+        //         title:"VErify EXP",
+        //     });
+        User.find({},function(err,usr){
+            
+            return res.render('unverifieduser', {
+                title: "UNIVERIFIED USER",
+                USER: usr,
+            });
+        });
+}
+
+module.exports.deleteduser = function(req,res){
+    if(!req.isAuthenticated()){
+        return res.redirect('back');
+    }
+    let id = req.query.id;
+    User.findByIdAndDelete(id,function(err){
+        if(err){
+            console.log("error in deleting");
+            return;
+        }
+        return res.redirect('back');
+    })
+}
+
+module.exports.verifieduser = function(req,res){
+    // console.log("in deleting");
+    if(!req.isAuthenticated()){
+        return res.redirect('back');
+    }
+    let id = req.query.id;
+    console.log(id);
+    User.findOneAndUpdate(id,{role:0},function(err){
+        if(err){
+            console.log("error in deleting");
+            return;
+        }
+        return res.redirect('back');
+    });
+}

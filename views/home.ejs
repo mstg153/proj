@@ -6,13 +6,13 @@
 <div id = "exp-list-container">
     <ul>
         <%for (exp of Experience){%>
-            <%if(exp.status == 1){%>
+            <%if(exp.status == 1 ){%>
             <li>
-                
+                <div style="background-color: aqua;">
                 <p><%= exp.Company_Name%> | <%=exp.Student_Name %>
                     <small><%= exp.Student_Name%></small>
                 </p>
-                
+                </div>
             </li>
             <%}%>
         <%}%>

@@ -1,0 +1,18 @@
+<h1>UNVERIFIED USER</h1>
+
+<%if(user.role == 0 || user.role == 1){%>
+    <p> " you are not eligible to do this " </p>
+    <%}else{%>
+        <ul>
+            <%for (usr of USER){%>
+                <%if(usr.role == -1){%>
+                <li>
+                    <p><%= usr.email%> | <%=usr.name %></p>
+                    <!-- <a href="/verify"><button type="button"></button></a> -->
+                    <button type="submit"><a href="../users/deleteuser/?id=<%= usr._id%>">delete</a></button>
+                    <button type="submit"><a href="../users/gooduser/?id=<%= usr._id%>">Tick as Verified</a></button>
+                </li>
+                <%}%>
+            <%}%>
+        </ul>
+    <%}%>
