@@ -1,0 +1,20 @@
+
+<h1>
+    <%= title %>
+</h1>
+
+<div id = "exp-list-container">
+    <ul>
+        <%for (exp of Experience){%>
+            <%if(exp.status == 1){%>
+            <li>
+                
+                <p><%= exp.Company_Name%> | <%=exp.Student_Name %>
+                    <small><%= exp.Student_Name%></small>
+                </p>
+                
+            </li>
+            <%}%>
+        <%}%>
+    </ul>
+</div>
