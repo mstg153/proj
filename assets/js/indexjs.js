@@ -2,6 +2,7 @@ document.getElementById('vbg').play();
 document.body.style.position = 'fixed';
 const prel =document.getElementById('preloader');
 
+console.log("in index js")
 window.addEventListener('load',() => {
     setTimeout(()=> { 
         prel.parentElement.removeChild(prel.parentElement.children[0]);

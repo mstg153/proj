@@ -37,14 +37,14 @@
             <div class="bar2"></div>
             <div class="bar3"></div>
           </div>
-          <!-- <div class="logo-section">
-            <img src="../Logo 5.svg" alt="" />
-          </div>  -->
+          <div class="logo-section">
+            <img src="/img/Logo 5.svg" alt="" />
+          </div> 
           <ul id="nav-list">
             <%if(locals.user){%>
             <li class="for-small">
               <div class="profile">
-                <img src="../assets/img/vug.jpg" alt="" />
+                <img src="/img/vug.jpg" alt="" />
                 <p class="user-name"><%=user.name%></p>
                 <p class="user-desig"><%=user.department%>- <%= user.yearofGraduation%></p>
               </div>
@@ -59,6 +59,15 @@
             <%}else{%>
                 <li><a href="/users/sign-out">Sign Out</a></li>
             <%}%>
+            <%if(locals.user){%>
+            <li class="for-big">
+                <a href="#" class="profile">
+                  <img src="/img/vug.jpg" alt="" />
+                  <p class="user-name">Kommerla Shamgar Staines</p>
+                  <p class="user-desig">3rd year - CST</p>
+                </a>
+              </li>
+              <%}%>
           </ul>
         </nav> 
       </div>

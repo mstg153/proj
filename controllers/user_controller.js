@@ -116,26 +116,19 @@ module.exports.deleted = function(req,res){
     })
 }
 module.exports.verified = function(req,res){
-    console.log("in deleting");
+    // console.log("in deleting");
     if(!req.isAuthenticated()){
         return res.redirect('back');
     }
     let id = req.query.id;
     console.log(id);
-    Experience.findOneAndUpdate(id,{status:1},function(err){
+    Experience.findOneAndUpdate({_id:id},{status:1},function(err){
         if(err){
             console.log("error in deleting");
             return;
         }
         return res.redirect('back');
     });
-    // Experience.findByIdAndDelete(id,function(err){
-    //     if(err){
-    //         console.log("error in deleting");
-    //         return;
-    //     }
-    //     return res.redirect('back');
-    // })
 }
 
 module.exports.verifyuser = function(req,res){
@@ -180,9 +173,9 @@ module.exports.verifieduser = function(req,res){
     }
     let id = req.query.id;
     console.log(id);
-    User.findOneAndUpdate(id,{role:0},function(err){
+    User.findOneAndUpdate({_id: id},{role:0},function(err){
         if(err){
-            console.log("error in deleting");
+            console.log("error in verifying user");
             return;
         }
         return res.redirect('back');

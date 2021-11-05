@@ -1,9 +1,5 @@
-
-<h1>
-    <%= title %>
-</h1>
-
-<div id = "exp-list-container">
+<html lang="en">
+    <!-- <div id = "exp-list-container">
     <ul>
         <%for (exp of Experience){%>
             <%if(exp.status == 1 ){%>
@@ -11,6 +7,7 @@
                 <div style="background-color: aqua;">
                 <p><%= exp.Company_Name%> | <%=exp.Student_Name %>
                     <small><%= exp.Student_Name%></small>
+                    <a href="/articles/?id=<%=exp._id%>">read here</a>
                 </p>
                 </div>
             </li>
@@ -18,3 +15,44 @@
         <%}%>
     </ul>
 </div>
+ -->
+ <head>
+    <link rel="stylesheet" href="/css/article.css" />
+ </head>
+<body >
+    <section class="articles-section">
+        <div class="section-heading">
+        <h1>Top Articles</h1>
+        </div>
+        <%for (exp of Experience){%>
+            <%if(exp.status == 1 ){%>
+            <div class="section-body">
+                <div class="article-cards-section">
+                    <div class="article-card">
+                        <div class="article-content">
+                            <div>
+                            <div class="article-name"><h2><%= exp.Company_Name%> | <%=exp.Student_Name %></h2></div>
+                            <div class="article-desctiption">
+                                <p> <%=exp.experience%>
+                                <a href="/articles/?id=<%=exp._id%>">read more ...</a>
+                                </p>
+                            </div>
+                            </div>
+                            <div>
+                            <div class="article-publisher"><%=exp.Student_Name %></div>
+                            <div class="published-date"><%=exp.updatedAt %></div>
+                            </div>
+                        </div>
+                        <div class="article-image">
+                            <img src="../assets/img/002.jpg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+        <%}%>
+    </section>
+</body>
+<!-- <script src="/js/readarticles.js"></script> -->
+</html>
+
