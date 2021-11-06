@@ -33,14 +33,17 @@
                             <div>
                             <div class="article-name"><h2><%= exp.Company_Name%> | <%=exp.Student_Name %></h2></div>
                             <div class="article-desctiption">
-                                <p> <%=exp.experience%>
-                                <a href="/articles/?id=<%=exp._id%>">read more ...</a>
-                                </p>
+                                <%  { %>
+                                    <p><%= exp.experience.slice(0,100) %>
+                                    <a href="/articles/?id=<%=exp._id%>" target="_blank">read more ...</a></p>
+                                  <% } %>
+                                
+                                
                             </div>
                             </div>
                             <div>
                             <div class="article-publisher"><%=exp.Student_Name %></div>
-                            <div class="published-date"><%=exp.updatedAt %></div>
+                            <div class="published-date"><i>published on :</i> <%=exp.updatedAt.toISOString().slice(0,10) %></div>
                             </div>
                         </div>
                         <div class="article-image">
@@ -53,6 +56,7 @@
         <%}%>
     </section>
 </body>
+
 <!-- <script src="/js/readarticles.js"></script> -->
 </html>
 

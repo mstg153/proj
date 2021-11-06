@@ -5,22 +5,79 @@
         <p>We are pleased that you are sharing your Expereince with us which can benifit our Aspiring juniors. </p>
         <p>We Thank you!!</p>
         <form action="../users/createform" method="post">
-            <label for="Student_Name">Enter Your Name</label>
-            <input type="text" name="Student_Name" placeholder="Enter Your Name"><br>
-            <label for="Student_Roll">Enter Your Enrollment Number</label>
-            <input type="number" name="Student_Roll" placeholder="Enter Your Enrollment Number"><br>
-            <label for="Company_Name">Enter Company Name</label>
+
+            <label for="Student_Name">1. Enter Your Name</label>
+            <input type="text" name="Student_Name" value= "<%=user.name%>" readonly><br>
+            
+            <label for="cgpa">2. Enter Your CGPA/percentage</label>
+            <input type="text" name="cgpa" placeholder="Enter Your cgpa"><br>
+            
+            <label for="Student_Roll">3. Enter Your Enrollment Number</label>
+            <input type="number" name="Student_Roll" value="<%=user.enroll%>" readonly ><br>
+            
+            <label for="department">4.1 Enter Your Department</label>
+            <!-- <textarea name="department" value= <%= user.department%> readonly cols="40" rows="1"></textarea><br> -->
+            
+            <input type="text" name="department" value= "<%=user.department%>" readonly size="50"><br>
+
+            <label for="yearofGraduation">4.2 Enter Your Year Of graduation</label>
+            <input type="text" name="yearofGraduation" value= <%=user.yearofGraduation%> readonly><br>
+
+            <label for="Company_Name">5. Enter Company Name</label>
             <input type="text" name="Company_Name" placeholder="Enter Company Name"><br>
-            <label for="Applied_Platform">Where did You apply?</label>
+            
+            <label for="applied_role">6.1 Role Applied for?</label>
+            <input type="text" name="applied_role" placeholder="Role Applied for?"><br>
+            
+            <label for="ctc">6.2 CTC</label>
+            <input type="text" name="ctc" placeholder="expected ctc"><br>
+
+            <p>7. Did You get the Offer</p>
+            <input type="radio" name="offer_status" value="yes">
+            <label for="yes">YES</label><br>
+            <input type="radio"  name="offer_status" value="no">
+            <label for="no">NO</label><br>
+
+            <label for="Applied_Platform">8. Where did You apply?</label>
             <input list="Ways" name="Applied_Platform" >
             <datalist id="Ways">
                 <option value="Off Campus">
+                <option value="On Campus">
                 <option value="Career Site">
                 <option value="Linkedin and other profiles">
                 <option value="Refferal">
                 <option value="Hackathons">
             </datalist><br>
-            <label for="No_of_Rounds">How many No.of Rounds Were There</label>
+            <b><p>9. Your Preparation</p></b>
+            <label for="topics_prep">9.1 Topics to be Prepared</label>
+            <textarea name="topics_prep" placeholder="Topics to be Prepared" cols="40" rows="3"></textarea><br><br>
+            
+            <!-- <input type="text" name="topics_prep" placeholder="Topics to be Prepared"><br> -->
+            
+            <label for="prep_time">9.2 How many months did you prepare</label>
+            <input type="text" name="prep_time" placeholder="How many months did you prepare"><br><br>
+            
+            <label for="resource">9.3 Resource to study</label>
+            <textarea name="resource" placeholder="Resource to study" cols="40" rows="4"></textarea><br><br>
+            
+            <!-- <input type="text" name="resource" placeholder="Resource to study"><br> -->
+            
+            <label for="prep_tips">10. Preparation tips</label>
+            <textarea name="prep_tips" placeholder="Preparation tips" cols="40" rows="4"></textarea><br><br>
+            <!-- <input type="text" name="prep_tips" placeholder="Preparation tips"><br> -->
+            
+            <label for="elig_cri">11. Any eligible Criteria</label>
+            <input type="text" name="elig_cri" placeholder="Any eligible Criteria"><br>
+            
+            <label for="resume_tips">12. Resume Tips</label>
+            <input type="text" name="resume_tips" placeholder="Resume Tips"><br>
+            
+            <label for="reason">13. Is there Any specific Reason that you have been Shortlisted (Good Competitive
+                programming profile, Projects , Cgpa....)</label>
+            <textarea name="reason" placeholder="Any reason to be selected" cols="40" rows="4"></textarea><br>
+            <!-- <input type="text" name="reason" placeholder="Any reason to be selected"><br> -->
+            
+            <label for="No_of_Rounds">14. How many No.of Rounds Were There</label>
             <input list="Rounds" name="No_of_Rounds">
             <datalist id= "Rounds">
                 <option value="1">
@@ -31,8 +88,27 @@
                 <option value="6">
                 <option value="7">
             </datalist><br>
-            <label for="experience">Enter Your Expereince</label>
-            <textarea name="experience" placeholder="Enter Your Expereince" cols="40" rows="10"></textarea>
+
+            <b><p>15. INTERVIEW PROCESS</p></b>
+            <label for="int_1">15.1 How has interview been taken(offline, offline),Platform,, whiteboard , were
+                interviewers helpful</label>
+            <textarea name="int_1" placeholder="About Interview" cols="40" rows="10"></textarea><br><br>
+            <!-- <input type="text" name="int_1" placeholder="About Interview"><br> -->
+            
+            <label for="experience">15.2 Questions Asked and possible solutions</label>
+            <textarea name="experience" placeholder="Questions asked" cols="40" rows="10"></textarea><br>
+            <br>
+            
+
+            <label for="suggestions">16. Suggestions for Juniors</label>
+            <input type="text" name="suggestions" placeholder="suggestions"><br>
+            
+            
+            <!-- <label for="department">5. Enter Your Department</label>
+            <input type="text" name="department" placeholder="Enter Your department"><br> -->
+
+
+            
             <button type="submit"> SUBMIT </button>
         </form>
     </body>

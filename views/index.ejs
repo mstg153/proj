@@ -73,7 +73,7 @@
       </div>
       <ul class="list"> 
         <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#">Creators</a></li>
           <li><a href="mailto:shamgarstaines555@gmail.com">Contact Us</a></li>
       </ul>
@@ -97,14 +97,14 @@
           <div class="buttons">
             <a href="/read_articles">Read Articles</a>
             <%if(!locals.user){%>
-              <a href="/users/sign-up" id="signUpModal">Login / signup</a>
+              <a href="/users/sign-in" id="signUpModal">Login / signup</a>
             <%}%>
           </div>
         </div>
       </div>
     </header>
 
-    <section class="about-section">
+    <section class="about-section" id="about">
       <div class="image-section">
         <img src="/img/002.jpg" alt="" />
       </div>

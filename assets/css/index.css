@@ -3,6 +3,9 @@
     margin: 0;
   }
   
+  html {
+    scroll-behavior: smooth;
+  }
   ::-moz-selection {
     color: #fff;
     background-color: #35008b;

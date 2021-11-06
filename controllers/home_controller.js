@@ -19,7 +19,7 @@ module.exports.home = function(req, res){
 
 module.exports.article = function(req,res){
     let id = req.query.id.trim();
-    console.log(id);
+    // console.log(id);
     
 
     Experience.find({_id:id},function(err,exp){
