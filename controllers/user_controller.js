@@ -36,7 +36,7 @@ module.exports.signUp = function(req, res){
 module.exports.signIn = function(req, res){
 
     if (req.isAuthenticated()){
-        return res.redirect('/users/profile');
+        return res.redirect('back');
     }
     return res.render('user_sign_in', {
         title: "Sign In"
@@ -110,7 +110,6 @@ module.exports.deleted = function(req,res){
     Experience.findByIdAndDelete(id,function(err){
         if(err){
             console.log("error in deleting");
-            return;
         }
         return res.redirect('back');
     })
@@ -172,12 +171,58 @@ module.exports.verifieduser = function(req,res){
         return res.redirect('back');
     }
     let id = req.query.id;
-    console.log(id);
+    // console.log(id);
     User.findOneAndUpdate({_id: id},{role:0},function(err){
         if(err){
             console.log("error in verifying user");
             return;
         }
         return res.redirect('back');
+    });
+}
+
+module.exports.editexp = function(req,res){
+    if(!req.isAuthenticated()){
+        return res.redirect('back');
+    }
+
+    let id = req.query.id;
+    Experience.findOne({_id:id},function(err,exp){
+            
+        return res.render('edit', {
+            
+            title: "UNIVERIFIED EXPERIENCE / EDIT ",
+            exp: exp,
+        });
+    });
+}
+
+module.exports.updateexps = function(req, res){
+    Experience.findOneAndUpdate({_id: req.body.id},{
+        Student_Name:req.body.Student_Name,
+        cgpa: req.body.cgpa,
+        Student_Roll: req.body.Student_Roll,
+        department: req.body.department,
+        yearofGraduation: req.body.yearofGraduation,
+        Company_Name: req.body.Company_Name,
+        applied_role: req.body.applied_role,
+        ctc: req.body.ctc,
+        topics_prep: req.body.topics_prep,
+        prep_time: req.body.prep_time,
+        resource: req.body.resource,
+        prep_tips: req.body.prep_tips,
+        elig_cri: req.body.elig_cri,
+        resume_tips: req.body.resume_tips,
+        reason: req.body.reason,
+        int_1: req.body.int_1,
+        experience: req.body.experience,
+        suggestions: req.body.suggestions
+
+    },function(err){
+        if(err){
+            console.log("error in updating user");
+            return;
+        }
+        return res.redirect('../users/verifyexp');
     });
 }

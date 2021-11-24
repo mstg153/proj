@@ -1,0 +1,164 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body section {
+  width: 70%;
+  margin: 3rem auto;
+}
+
+body section h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+body section form {
+  width: 100%;
+  margin: 2rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body section form label {
+  margin-bottom: 0.5rem;
+}
+
+body section form div {
+  padding-left: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body section form div input {
+  margin-right: 1rem;
+}
+
+body section form div label {
+  margin-right: 6rem;
+}
+
+body section form input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(63, 0, 122, 0.3);
+  padding: 0.5rem;
+}
+
+body section form input::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+body section form input:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+body section form input::-ms-input-placeholder {
+  font-size: 14px;
+}
+
+body section form input::placeholder {
+  font-size: 14px;
+}
+
+body section form input:focus {
+  border-bottom: 1px solid rgba(63, 0, 122, 0.7);
+}
+
+body section form input:focus::-webkit-input-placeholder {
+  font-size: 15px;
+}
+
+body section form input:focus:-ms-input-placeholder {
+  font-size: 15px;
+}
+
+body section form input:focus::-ms-input-placeholder {
+  font-size: 15px;
+}
+
+body section form input:focus::placeholder {
+  font-size: 15px;
+}
+
+body section form textarea {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(63, 0, 122, 0.3);
+  padding: 0.5rem;
+}
+
+body section form textarea::-webkit-input-placeholder {
+  position: absolute;
+  bottom: 0.5rem;
+  font-size: 14px;
+}
+
+body section form textarea:-ms-input-placeholder {
+  position: absolute;
+  bottom: 0.5rem;
+  font-size: 14px;
+}
+
+body section form textarea::-ms-input-placeholder {
+  position: absolute;
+  bottom: 0.5rem;
+  font-size: 14px;
+}
+
+body section form textarea::placeholder {
+  position: absolute;
+  bottom: 0.5rem;
+  font-size: 14px;
+}
+
+body section form textarea:focus {
+  border-bottom: 1px solid rgba(63, 0, 122, 0.7);
+}
+
+body section form textarea:focus::-webkit-input-placeholder {
+  font-size: 15px;
+}
+
+body section form textarea:focus:-ms-input-placeholder {
+  font-size: 15px;
+}
+
+body section form textarea:focus::-ms-input-placeholder {
+  font-size: 15px;
+}
+
+body section form textarea:focus::placeholder {
+  font-size: 15px;
+}
+
+body section form .btn-sec button {
+  width: 30%;
+  outline: none;
+  border: none;
+  padding: 0.3rem;
+  background-color: #3f007a;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+body section form .btn-sec button:hover {
+  cursor: pointer;
+  background-color: #3f007ae7;
+}
+/*# sourceMappingURL=form.css.map */

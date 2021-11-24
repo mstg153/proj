@@ -1,0 +1,112 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  width: 100%;
+  }
+
+
+body .articles-section {
+  width: 70%;
+  margin: 2rem auto;
+}
+
+body .articles-section .section-heading {
+  padding: 3rem;
+  text-align: center;
+}
+
+body .articles-section .section-heading h1 {
+  font-size: 36px;
+}
+
+body form {
+  min-height: 25vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-bottom: 3rem;
+}
+
+body form input {
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgba(63, 0, 122, 0.2);
+}
+
+body form input::-webkit-input-placeholder {
+  color: #555;
+}
+
+body form input:-ms-input-placeholder {
+  color: #555;
+}
+
+body form input::-ms-input-placeholder {
+  color: #555;
+}
+
+body form input::placeholder {
+  color: #555;
+}
+
+body form input:focus {
+  border-bottom: 1px solid rgba(63, 0, 122, 0.5);
+}
+
+body form .btn-sec button {
+  width: 30%;
+  outline: none;
+  border: none;
+  padding: 0.3rem;
+  background-color: #3f007a;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+body form .btn-sec button:hover {
+  cursor: pointer;
+  background-color: #3f007ae7;
+}
+
+body .section-body .article-cards-section {
+  width: 100%;
+}
+
+body .section-body .article-cards-section .article-card {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+body .section-body .article-cards-section .article-card .article-content .article-name h2 {
+  font-size: 20px;
+}
+
+body .section-body .article-cards-section .article-card .article-content .article-description p {
+  font-size: 18px;
+  color: #333;
+}
+
+body .section-body .article-cards-section .article-card .article-content .article-publisher {
+  font-size: 16px;
+  color: #444;
+}
+
+body .section-body .article-cards-section .article-card .article-content .published-date {
+  font-size: 14px;
+  color: #666;
+}
+/*# sourceMappingURL=article.css.map */

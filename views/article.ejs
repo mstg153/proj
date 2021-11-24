@@ -1,8 +1,14 @@
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="/css/readarticles.css" />
+    <link rel="stylesheet" href="/css/article.css" />
   </head>
   <body>
+    <%if(!locals.user ||!exp ){%>
+      <br><br>
+      <h1>NO ARTICLE FOUND</h1>
+      <h2>OR PLEASE SIGNIN</h2>
+    <%}else{%>
+
     <div class="text-center" id="preloader">
       <div class="row">
         <div class="col-sm-2">
@@ -21,7 +27,7 @@
     <section class="article-section">
       <div class="page" id="section-to-print">
         <div class="main-heading">
-          <center><h1> <%=exp.Company_Name%>| <%=exp.applied_role%> </h1></center>
+          <center><h1><%=exp.Company_Name%>| <%=exp.applied_role%> </h1></center>
         </div>
         <br><br>
         <!-- <div class="article-image">
@@ -60,16 +66,16 @@
           <h2>Recruitment Process</h2>
         </div>
         <div class="paragraph">
-          <p><b>No.of Rounds: </b><i><%=exp.No_of_Rounds%></i></p>
-          <p><b>About Interview: </b><i><%=exp.int_1%></i></p><br>
-          <p><b>Questions Asked: </b><i style="white-space: pre-line"><%=exp.experience.charAt(0).toUpperCase() %></i></p>
+          <p><b>No.of Rounds: </b><i ><%=exp.No_of_Rounds%></i></p>
+          <p><b>About Interview: </b><i style="white-space: pre-line"><%=exp.int_1%></i></p><br>
+          <p><b>Questions Asked: </b><i style="white-space: pre-line"><%=exp.experience %></i></p>
           <p><b>Were you able to get the final offer: </b><i><%=exp.offer_status%></i></p>
         </div>
         <div class="sub-heading">
           <h2>Suggestions for Juniors: </h2>
         </div>
         <div class="quotation">
-          <p><%=exp.suggestions%></p>
+          <p style="white-space: pre-line"><%=exp.suggestions%></p>
         </div>
 
         <div class="sub-heading">
@@ -77,7 +83,7 @@
         </div>
         <div class="paragraph">
           
-          <%if(locals.user){%>
+          <%if(!locals.user){%>
             <p><b>Student Name: </b> <i><%=exp.Student_Name%></i>  </p>
             <p><b>CGPA: </b> <i><%=exp.cgpa%></i></p>
             <p><b>Department: </b><i><%=exp.department%></i></p>
@@ -147,5 +153,6 @@
     </footer>
 
     <script src="/js/readarticles.js"></script>
+    <%}%>
   </body>
 </html>

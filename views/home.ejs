@@ -17,13 +17,44 @@
 </div>
  -->
  <head>
-    <link rel="stylesheet" href="/css/article.css" />
+    <link rel="stylesheet" href="css/home.css" />
  </head>
 <body >
     <section class="articles-section">
         <div class="section-heading">
         <h1>Top Articles</h1>
         </div>
+
+        <form action="/read_articles" method="post">
+            <label for="years">Select year of Graduation</label>
+            <input list="years" name="years" placeholder="year of Graduation" >
+            <datalist id="years">
+                <option value="2024">
+                <option value="2023">
+                <option value="2022">
+                <option value="2021">
+                <option value="2020">
+            </datalist>   
+
+            <label for="comapny">company</label>
+            <!-- <input type="text" name="company" placeholder="Enter company you want to read"> -->
+            <input list="comp" name="company" placeholder="Enter company you want to read" >
+            <datalist id="comp"> 
+                <%var comp_list = new Set()%>
+                <%for (exp of Experience){%>
+                <%if (exp.status == 1){%>
+                <% comp_list.add(exp.Company_Name) %>
+                <% }}%>
+                <%for (exp of comp_list){%>
+                        <option value= "<%=exp%>">
+                <%} %>
+            </datalist>   
+            <br>
+            <div class="btn-sec">
+                <button>Filter</button>
+            </div><br><br>
+        </form>
+
         <%for (exp of Experience){%>
             <%if(exp.status == 1 ){%>
             <div class="section-body">
@@ -31,7 +62,7 @@
                     <div class="article-card">
                         <div class="article-content">
                             <div>
-                            <div class="article-name"><h2><%= exp.Company_Name%> | <%=exp.Student_Name %></h2></div>
+                            <div class="article-name"><h2><%= exp.Company_Name%> | <%=exp.Student_Name%> | <%=exp.yearofGraduation%></h2></div>
                             <div class="article-desctiption">
                                 <%  { %>
                                     <p><%= exp.experience.slice(0,100) %>
@@ -56,7 +87,5 @@
         <%}%>
     </section>
 </body>
-
-<!-- <script src="/js/readarticles.js"></script> -->
 </html>
 

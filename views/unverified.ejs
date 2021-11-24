@@ -14,22 +14,23 @@
                 <p><b>Where did you apply from: </b> <i><%=exp.Applied_Platform%></i></p>
                 <p><b>Topics to focus: </b><i><%=exp.topics_prep%></i></p>
                 <p><b>How many months did you prepared: </b><i><%=exp.prep_time%></i></p>
-                <p><b>Resources to Study: </b><i><%=exp.resource%></i></p>
-                <p><b>Preparation Tips: </b><i><%=exp.prep_tips%></i></p>
+                <p><b>Resources to Study: </b><i style="white-space: pre-line"><%=exp.resource%></i></p>
+                <p><b>Preparation Tips: </b><i style="white-space: pre-line"><%=exp.prep_tips%></i></p>
                 <p><b>Was There Any eligibilty Criteria: </b><i><%=exp.elig_cri%></i></p>
                 <p><b>Any reason for getting Shortlisted: </b><i><%=exp.reason%></i></p>
-                <p><b>Resume Tips: </b><i><%=exp.resume_tips%></i></p>
+                <p><b>Resume Tips: </b><i style="white-space: pre-line"><%=exp.resume_tips%></i></p>
                 <p><b>No.of Rounds: </b><i><%=exp.No_of_Rounds%></i></p>
-                <p><b>About Interview: </b><i><%=exp.int_1%></i></p><br>
-                <p><b>Questions Asked: </b><i style="white-space: pre-line"><%=exp.experience.charAt(0).toUpperCase() %></i></p>
+                <p><b>About Interview: </b><i style="white-space: pre-line"><%=exp.int_1%></i></p>
+                <p><b>Questions Asked: </b><i style="white-space: pre-line"><%=exp.experience %></i></p>
                 <p><b>Were you able to get the final offer: </b><i><%=exp.offer_status%></i></p>
                 <p><b>Student Name: </b> <i><%=exp.Student_Name%></i>  </p>
                 <p><b>CGPA: </b> <i><%=exp.cgpa%></i></p>
                 <p><b>Department: </b><i><%=exp.department%></i></p>
                 <p><b>Year of Graduation:</b><i><%=user.yearofGraduation%></i></p>
                 <!-- <a href="/verify"><button type="button"></button></a> -->
-                <button type="submit"><a href="../users/delete/?id=<%= exp._id%>">delete</a></button>
+                <button type="submit"><a href="../users/delete/?id=<%= exp._id%>">Delete</a></button>
                 <button type="submit"><a href="../users/good/?id=<%= exp._id%>">Tick as Verified</a></button>
+                <button type="submit"><a href="../users/editexp/?id=<%= exp._id%>">Edit</a></button>
             </li>
             <%}%>
         <%}%>

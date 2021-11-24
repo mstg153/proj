@@ -17,8 +17,9 @@ router.get('/delete', usersController.deleted);
 router.get('/verifyusers', usersController.verifyuser);
 router.get('/gooduser', usersController.verifieduser);
 router.get('/deleteuser', usersController.deleteduser);
-
-
+router.get('/editexp', usersController.editexp);
+// router.get('/update',usersController.update);
+router.post('/updateexp',usersController.updateexps);
 // use passport as a middleware to authenticate
 router.post('/create-session', passport.authenticate(
     'local',

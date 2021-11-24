@@ -1,48 +1,44 @@
 <html>
-    <head>
-    <link rel="stylesheet" href="/css/form.css">
-    </head>
+    
     <body>
-        <section>
-            <h1>Share your Expereince with US!!</h1>
-        <p>We are pleased that you are sharing your Expereince with us which can benifit our Aspiring juniors. </p>
-        <p>We Thank you!!</p>
-        <form action="../users/createform" method="post">
-
+        <br><br>
+        <form action="../../users/updateexp" method="post">
+            <input type="hidden" name="id" value= "<%=exp._id%>"  required>
+            
             <label for="Student_Name">1. Enter Your Name</label>
-            <input type="text" name="Student_Name" value= "<%=user.name%>" readonly required><br>
+            <input type="text" name="Student_Name" value= "<%=exp.Student_Name%>"  required><br>
             
             <label for="cgpa">2. Enter Your CGPA/percentage</label>
-            <input type="text" name="cgpa" placeholder="Enter Your cgpa" required><br>
+            <input type="text" name="cgpa" value="<%=exp.cgpa%>" required><br>
             
             <label for="Student_Roll">3. Enter Your Enrollment Number</label>
-            <input type="number" name="Student_Roll" value="<%=user.enroll%>" readonly required><br>
+            <input type="number" name="Student_Roll" value="<%=exp.Student_Roll%>"  required><br>
             
             <label for="department">4.1 Enter Your Department</label>
             <!-- <textarea name="department" value= <%= user.department%> readonly cols="40" rows="1"></textarea><br> -->
             
-            <input type="text" name="department" value= "<%=user.department%>" readonly size="50" required><br>
+            <input type="text" name="department" value= "<%=exp.department%>"  size="50" required><br>
 
             <label for="yearofGraduation">4.2 Enter Your Year Of graduation</label>
-            <input type="text" name="yearofGraduation" value= "<%=user.yearofGraduation%>" readonly required><br>
+            <input type="text" name="yearofGraduation" value= "<%=exp.yearofGraduation%>"  required><br>
 
             <label for="Company_Name">5. Enter Company Name</label>
-            <input type="text" name="Company_Name" placeholder="Enter Company Name" required><br>
+            <input type="text" name="Company_Name" value="<%=exp.Company_Name%>" required><br>
             
             <label for="applied_role">6.1 Role Applied for?</label>
-            <input type="text" name="applied_role" placeholder="Role Applied for?" required><br>
+            <input type="text" name="applied_role" value="<%=exp.applied_role%>" required><br>
             
             <label for="ctc">6.2 CTC</label>
-            <input type="text" name="ctc" placeholder="expected ctc" required><br>
+            <input type="text" name="ctc" value="<%=exp.ctc%>" required><br>
 
             <p>7. Did You get the Offer</p>
-            <input type="radio" name="offer_status" value="yes" required>
+            <!-- <input type="radio" name="offer_status" value="yes" required>
             <label for="yes">YES</label><br>
             <input type="radio"  name="offer_status" value="no" required>
-            <label for="no">NO</label><br>
+            <label for="no">NO</label><br> -->
 
             <label for="Applied_Platform">8. Where did You apply?</label>
-            <input list="Ways" name="Applied_Platform" required>
+            <!-- <input list="Ways" name="Applied_Platform" required>
             <datalist id="Ways">
                 <option value="Off Campus">
                 <option value="On Campus">
@@ -50,38 +46,38 @@
                 <option value="Linkedin and other profiles">
                 <option value="Refferal">
                 <option value="Hackathons">
-            </datalist><br>
+            </datalist><br> -->
             <b><p>9. Your Preparation</p></b>
             <label for="topics_prep">9.1 Topics to be Prepared</label>
-            <textarea name="topics_prep" placeholder="Topics to be Prepared" cols="40" rows="3" required></textarea><br><br>
+            <textarea name="topics_prep" value="<%=exp.topics_prep%>" cols="40" rows="3" required><%=exp.topics_prep%></textarea><br><br>
             
             <!-- <input type="text" name="topics_prep" placeholder="Topics to be Prepared"><br> -->
             
             <label for="prep_time">9.2 How many months did you prepare</label>
-            <input type="text" name="prep_time" placeholder="How many months did you prepare" required><br><br>
+            <input type="text" name="prep_time" value="<%=exp.prep_time%>" required><br><br>
             
             <label for="resource">9.3 Resource to study</label>
-            <textarea name="resource" placeholder="Resource to study" cols="40" rows="4" required></textarea><br><br>
+            <textarea name="resource" value="<%=exp.resource%>" cols="40" rows="4" required><%=exp.resource%></textarea><br><br>
             
             <!-- <input type="text" name="resource" placeholder="Resource to study"><br> -->
             
             <label for="prep_tips">10. Preparation tips</label>
-            <textarea name="prep_tips" placeholder="Preparation tips" cols="40" rows="4" required></textarea><br><br>
+            <textarea name="prep_tips" value="<%=exp.prep_tips%>" cols="40" rows="4" required><%=exp.prep_tips%></textarea><br><br>
             <!-- <input type="text" name="prep_tips" placeholder="Preparation tips"><br> -->
             
             <label for="elig_cri">11. Any eligible Criteria</label>
-            <input type="text" name="elig_cri" placeholder="Any eligible Criteria" required><br>
+            <input type="text" name="elig_cri" value="<%=exp.elig_cri%>" required><br>
             
             <label for="resume_tips">12. Resume Tips</label>
-            <input type="text" name="resume_tips" placeholder="Resume Tips" required><br>
+            <input type="text" name="resume_tips" value="<%=exp.resume_tips%>" required><br>
             
             <label for="reason">13. Is there Any specific Reason that you have been Shortlisted (Good Competitive
                 programming profile, Projects , Cgpa....)</label>
-            <textarea name="reason" placeholder="Any reason to be selected" cols="40" rows="4" required></textarea><br>
+            <textarea name="reason" value="<%=exp.reason%>" cols="40" rows="4" required><%=exp.reason%></textarea><br>
             <!-- <input type="text" name="reason" placeholder="Any reason to be selected"><br> -->
             
             <label for="No_of_Rounds">14. How many No.of Rounds Were There</label>
-            <input list="Rounds" name="No_of_Rounds" required>
+            <!-- <input list="Rounds" name="No_of_Rounds" required>
             <datalist id= "Rounds">
                 <option value="1">
                 <option value="2">
@@ -90,21 +86,21 @@
                 <option value="5">
                 <option value="6">
                 <option value="7">
-            </datalist><br>
+            </datalist><br> -->
 
             <b><p>15. INTERVIEW PROCESS</p></b>
             <label for="int_1">15.1 How has interview been taken(offline, offline),Platform,, whiteboard , were
                 interviewers helpful</label>
-            <textarea name="int_1" placeholder="About Interview" cols="40" rows="10" required></textarea><br><br>
+            <textarea name="int_1" value="<%=exp.int_1%>" cols="40" rows="10" required><%=exp.int_1%></textarea><br><br>
             <!-- <input type="text" name="int_1" placeholder="About Interview"><br> -->
             
             <label for="experience">15.2 Questions Asked and possible solutions</label>
-            <textarea name="experience" placeholder="Questions asked" cols="40" rows="10" required></textarea><br>
+            <textarea name="experience" value="<%=exp.experience%>" cols="40" rows="10" required><%=exp.experience%></textarea><br>
             <br>
             
 
             <label for="suggestions">16. Suggestions for Juniors</label>
-            <input type="text" name="suggestions" placeholder="suggestions" required><br>
+            <input type="text" name="suggestions" value="<%=exp.suggestions%>" required><br>
             
             
             <!-- <label for="department">5. Enter Your Department</label>
@@ -112,11 +108,7 @@
 
 
             
-            <div class="btn-sec">
-                <button type="submit">SUBMIT</button>
-            </div>
+            <button type="submit">update</button>
         </form>
-    </section>
-
     </body>
 </html>
