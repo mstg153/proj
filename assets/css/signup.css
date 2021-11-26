@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  section {
+    width: 60%;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  section h1 {
+    margin: 2rem;
+    font-size: 36px;
+  }
+  
+  section form {
+    width: 60%;
+    min-height: 50vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  
+  section form input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #9883ac;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+  }
+  
+  section form input:focus {
+    border-bottom: 1.5px solid #3f007a;
+  }
+  
+  section form .submit-btn {
+    cursor: pointer;
+    width: 50%;
+    border: none;
+    background-color: #3f007a;
+    padding: 0.3rem 1rem;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  section form p {
+    float: left;
+  }
+  
+  section form p a {
+    color: #3f007a;
+  }
+  /*# sourceMappingURL=signup.css.map */

@@ -20,7 +20,7 @@ module.exports.home = function(req, res){
 
         Experience.find({}).populate('user').exec(function(err,exp){
             return res.render('home', {
-                title: "Home",
+                title: "Articles",
                 Experience: exp,
             });
         });
@@ -96,7 +96,7 @@ module.exports.article = function(req,res){
         }
         // console.log(exp);
         return res.render('article', {
-            title: "ARTICLE",
+            title: exp[0].Company_Name+" | "+exp[0].applied_role,
             exp: exp[0],
         });
     });

@@ -46,6 +46,7 @@ module.exports.signIn = function(req, res){
 // get the sign up data
 module.exports.create = function(req, res){
     if (req.body.password != req.body.confirm_password){
+        req.flash('error', 'Passwords do not match');
         return res.redirect('back');
     }
 
@@ -59,6 +60,7 @@ module.exports.create = function(req, res){
                 return res.redirect('/users/sign-in');
             })
         }else{
+            req.flash('error','User already exists');
             return res.redirect('back');
         }
 
@@ -67,20 +69,26 @@ module.exports.create = function(req, res){
 
 module.exports.createform = function(req,res){
     Experience.create(req.body,function(err,exp){
-        if(err){console.log('error in creating a exp'); return}
+        if(err){
+            console.log('error in creating a exp'); 
+            req.flash('error',err);
+            return;
+        }
+        req.flash('success', 'Experience submitted for review');
         return res.redirect('/users/profile');
     });
 }
 
 // sign in and create a session for the user
 module.exports.createSession = function(req, res){
-    return res.redirect('/');
+    req.flash('success','loggedin Successful');
+    return res.redirect('/read_articles');
 }
 
 module.exports.destroySession = function(req, res){
     req.logout();
-
-    return res.redirect('/');
+    req.flash('success', 'logged out succesfully');
+    return res.redirect('/read_articles');
 }
 
 module.exports.verifyexp = function(req,res){
@@ -88,13 +96,6 @@ module.exports.verifyexp = function(req,res){
     if(!req.isAuthenticated()){
         return res.redirect('back');
     }
-        // if(user.role==0){
-        //     return res.redirect('back');
-        // }
-        // else{
-        //     return res.render('unverified',{
-        //         title:"VErify EXP",
-        //     });
         Experience.find({}).populate('user').exec(function(err,exp){
             return res.render('unverified', {
                 title: "UNIVERIFIED",
@@ -111,6 +112,7 @@ module.exports.deleted = function(req,res){
         if(err){
             console.log("error in deleting");
         }
+        req.flash('success','deleted Experience successfully');
         return res.redirect('back');
     })
 }
@@ -126,6 +128,7 @@ module.exports.verified = function(req,res){
             console.log("error in deleting");
             return;
         }
+        req.flash('success','verified Experience successfully');
         return res.redirect('back');
     });
 }
@@ -161,6 +164,7 @@ module.exports.deleteduser = function(req,res){
             console.log("error in deleting");
             return;
         }
+        req.flash('success','deleted USER successfully');
         return res.redirect('back');
     })
 }
@@ -177,6 +181,7 @@ module.exports.verifieduser = function(req,res){
             console.log("error in verifying user");
             return;
         }
+        req.flash('success','Verified User successfully');
         return res.redirect('back');
     });
 }
