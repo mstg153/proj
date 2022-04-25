@@ -1,22 +1,64 @@
 const User = require('../models/user');
 const Experience = require('../models/experiences');
+const Selection = require('../models/selection');
+const recievedmailer = require('../mailer/recievedmailer');
+const publishedmailer = require('../mailer/publishedmailer');
 
-module.exports.profile = function(req, res){
+
+module.exports.profile = async function(req, res){
     if(!req.isAuthenticated()){
         return res.redirect('users/sign-in');
     }
-    return res.render('user_profile', {
-        title: 'User Profile'
-    })
+
+    let id = req.user._id;
+
+    let exp =await Experience.find({user:id});
+        
+    return res.render('user_profile',{
+        title:req.user.name,
+        experience: exp,
+    });
+    
+    // return res.render('user_profile', {
+    //     title: 'User Profile'
+    // })
+}
+
+module.exports.updateprofile = function(req,res){
+    if(!req.isAuthenticated()){
+        return res.redirect('users/sign-in');
+    }
+    return res.render('updateprofile',{
+        title: 'Update Profile'
+    });
 }
 
 module.exports.form = function(req, res){
     if(!req.isAuthenticated()){
         return res.redirect('/users/sign-in');
     }
+
     return res.render('form', {
         title: 'Experience Form'
     })
+}
+//updating user
+module.exports.updateform = function(req,res){
+    if(!req.isAuthenticated()){
+        return res.redirect('/users/signin');
+    }
+    User.findOneAndUpdate({_id: req.user.id}, {
+        department : req.body.department,
+        yearofGraduation : req.body.yearofGraduation,
+        enroll : req.body.enroll
+    },function(err){
+        if(err){
+            console.log("error in Updating");
+            return;
+        }
+        req.flash('success','Updated succesfully');
+        return res.redirect('/users/profile');
+    });
 }
 
 // render the sign up page
@@ -67,16 +109,23 @@ module.exports.create = function(req, res){
     });
 }
 
-module.exports.createform = function(req,res){
-    Experience.create(req.body,function(err,exp){
-        if(err){
-            console.log('error in creating a exp'); 
-            req.flash('error',err);
-            return;
-        }
+module.exports.createform = async function(req,res){
+    try{
+        let exp = await Experience.create(req.body);
+        // let upd = await Experience.
+        // console.log(exp);
+        
+        let upt = await Experience.findOneAndUpdate({_id:exp._id},{user:req.user._id})
+
+        let new_t = await User.findById(req.user._id);
+        recievedmailer.received(new_t);
         req.flash('success', 'Experience submitted for review');
         return res.redirect('/users/profile');
-    });
+    
+    }catch(err){
+        req.flash('error',err);
+            return;
+    }
 }
 
 // sign in and create a session for the user
@@ -116,21 +165,32 @@ module.exports.deleted = function(req,res){
         return res.redirect('back');
     })
 }
-module.exports.verified = function(req,res){
-    // console.log("in deleting");
+module.exports.verified =async function(req,res){
     if(!req.isAuthenticated()){
         return res.redirect('back');
     }
-    let id = req.query.id;
-    console.log(id);
-    Experience.findOneAndUpdate({_id:id},{status:1},function(err){
-        if(err){
-            console.log("error in deleting");
-            return;
-        }
+    try{
+        // console.log("in deleting");
+        
+        let id = await req.query.id;
+        // console.log(id);
+        // let exp = Experience.findById(id);
+        // let usr = User.findById(exp.user);
+        let exp = await Experience.findOneAndUpdate({_id:id},{status:1});
+        // console.log(exp);
+        let usr = await User.findById(exp.user);
+        // console.log(usr);
+
+        publishedmailer.published(id,usr.email);
         req.flash('success','verified Experience successfully');
         return res.redirect('back');
-    });
+        
+    }
+    catch(err){
+            console.log("error in deleting",err);
+            return;
+        
+    }
 }
 
 module.exports.verifyuser = function(req,res){
@@ -221,13 +281,37 @@ module.exports.updateexps = function(req, res){
         reason: req.body.reason,
         int_1: req.body.int_1,
         experience: req.body.experience,
-        suggestions: req.body.suggestions
+        suggestions: req.body.suggestions,
+        message:""
 
     },function(err){
         if(err){
             console.log("error in updating user");
             return;
         }
-        return res.redirect('../users/verifyexp');
+        return res.redirect('../users/profile');
     });
+}
+
+module.exports.message = function(req, res){
+    // console.log(req.body.id);
+    Experience.findOneAndUpdate({_id: req.body.id},{
+        message:req.body.message
+    },function(err){
+        if(err){
+            console.log("error in updating user");
+            return;
+        }
+        return res.redirect('back');
+    });
+}
+
+module.exports.choosestu = finction(req,res){
+    if (req.isAuthenticated()){
+        return res.redirect('back');
+    }
+    return res.render('choosestu', {
+        title: 'Choose Stu',
+        user: User  
+    })
 }

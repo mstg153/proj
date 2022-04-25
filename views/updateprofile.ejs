@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <script>
+            function validateForm() {
+              let yr = document.forms["signup"]["yearofGraduation"].value;
+              if(yr<2018 || yr> 2024){
+                alert("Enter Valid year of Graduation");
+                return false;
+              }
+              let enrol = document.forms["signup"]["enroll"].value;
+              if(enrol<500000000 || enrol> 600000000){
+                alert("Enter Valid Enrollment Number");
+                return false;
+              }
+      
+              let x = document.forms["signup"]["email"].value;
+              if(/^@students.iiests.ac.in$/.test(x)) {
+                alert("Enter Valid Email(Gsuite ID)");
+                return false;
+              }        
+            }
+            </script>      
+    </head>
+    <body>
+        <section>
+
+            <h1>UPDATE PROFILE</h1>
+        
+            <form action="/users/updateform" name ="signup" onsubmit="return validateForm()" method="POST" autocomplete="off">
+                <input type="text" name="name" value="<%=locals.user.name%>" required>
+                <%if(user.department.length>0){%>
+                    <input list="dept" name="department" value="<%=user.department%>" required>
+                <%}else{%>
+                    <input list="dept" name="department" placeholder="ENter Department" required>
+
+                <%}%>
+                        <datalist id="dept">
+                            <option value="Computer Science and Technology">
+                            <option value="Information Technology">
+                            <option value="Electronics and Tele Communication">
+                            <option value="Electrical Engineering">
+                            <option value="Mechanical Engineering">
+                            <option value="Civil Engineering">
+                        </datalist>
+                <!-- <input type="text" name="department" placeholder="Department" required> -->
+                <!-- <input type="number" name="yearofGraduation" placeholder="year of Graduation" required> -->
+                <%if(user.yearofGraduation >2015){%>
+                <input list="years" name="yearofGraduation" value="<%=user.yearofGraduation%>" required>
+                
+                <%}else{%>
+                    <input list="years" name="yearofGraduation" placeholder="Enter Year of Graduation" required>
+                <%}%>
+                        <datalist id="years">
+                            <option value="2024">
+                            <option value="2023">
+                            <option value="2022">
+                            <option value="2021">
+                            <option value="2020">
+                            <!-- <option value="Refferal">
+                            <option value="Hackathons"> -->
+                        </datalist>
+                <input type="number" name="enroll" placeholder="Your enroll" required >
+                <input type="email" name="email" value="<%=locals.user.email%>" autocomplete="off" readonly required>
+                
+                <input class="submit-btn" type="submit" value="UPDATE">
+        
+            </form>
+        </section>
+    </body>
+</html>

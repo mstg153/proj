@@ -11,7 +11,6 @@ router.post('/read_articles', homeController.home);
 router.get('/',homeController.index);
 router.use('/users', require('./users'));
 router.get('/articles', homeController.article);
-router.get('/creators',homeController.creators);
 // router.post('/filter',homeController.filter);
 
 // for any further routes, access from here

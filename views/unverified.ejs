@@ -1,4 +1,4 @@
-<h1>UNVerified</h1>
+<h1><u>Expereinces to be Published</u></h1>
 <%if(user.role == 0){%>
 <p> " you are not eligible to do this " </p>
 <%}else{%>
@@ -27,10 +27,20 @@
                 <p><b>CGPA: </b> <i><%=exp.cgpa%></i></p>
                 <p><b>Department: </b><i><%=exp.department%></i></p>
                 <p><b>Year of Graduation:</b><i><%=user.yearofGraduation%></i></p>
+                <%if(exp.message != ""){%>
+                    <p><b>Previous message: </b><i><%=exp.message%></i></p>
+                <%}%>
                 <!-- <a href="/verify"><button type="button"></button></a> -->
                 <button type="submit"><a href="../users/delete/?id=<%= exp._id%>">Delete</a></button>
                 <button type="submit"><a href="../users/good/?id=<%= exp._id%>">Tick as Verified</a></button>
-                <button type="submit"><a href="../users/editexp/?id=<%= exp._id%>">Edit</a></button>
+                <form action="../users/updatewithmsg" method="post">
+                    <input type="hidden" name="id" value= "<%=exp._id%>"  required>
+                    <label for="message">Errors To be Notified</label>
+                    <textarea name="message" placeholder="Errors To be Notified" cols="40" rows="3"></textarea><br>
+                    <button type="submit">Notify him</button>
+                </form>
+                
+                <!-- <button type="submit"><a href="../users/updateexpi/?id=<%= exp._id%>">NOTIFY USER</a></button> -->
             </li>
             <%}%>
         <%}%>

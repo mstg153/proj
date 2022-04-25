@@ -16,15 +16,18 @@ const userSchema = new mongoose.Schema({
     },
     department:{
         type: String,
-        required:true
+        default: ""
+        // required:true
     },
     yearofGraduation:{
         type:Number,
-        required:true
+        default: 0
+        // required:true
     },
     enroll:{
         type:Number,
-        required:true
+        default: 0
+        // required:true
     },
     role:{
         type:Number,

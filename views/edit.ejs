@@ -2,25 +2,26 @@
     
     <body>
         <br><br>
+        <%if(exp.user == locals.user.id){%>
         <form action="../../users/updateexp" method="post">
             <input type="hidden" name="id" value= "<%=exp._id%>"  required>
             
             <label for="Student_Name">1. Enter Your Name</label>
-            <input type="text" name="Student_Name" value= "<%=exp.Student_Name%>"  required><br>
+            <input type="text" name="Student_Name" value= "<%=exp.Student_Name%>" readonly required><br>
             
             <label for="cgpa">2. Enter Your CGPA/percentage</label>
             <input type="text" name="cgpa" value="<%=exp.cgpa%>" required><br>
             
             <label for="Student_Roll">3. Enter Your Enrollment Number</label>
-            <input type="number" name="Student_Roll" value="<%=exp.Student_Roll%>"  required><br>
+            <input type="number" name="Student_Roll" value="<%=exp.Student_Roll%>" readonly  required><br>
             
             <label for="department">4.1 Enter Your Department</label>
             <!-- <textarea name="department" value= <%= user.department%> readonly cols="40" rows="1"></textarea><br> -->
             
-            <input type="text" name="department" value= "<%=exp.department%>"  size="50" required><br>
+            <input type="text" name="department" value= "<%=exp.department%>"  size="50" readonly required><br>
 
             <label for="yearofGraduation">4.2 Enter Your Year Of graduation</label>
-            <input type="text" name="yearofGraduation" value= "<%=exp.yearofGraduation%>"  required><br>
+            <input type="text" name="yearofGraduation" value= "<%=exp.yearofGraduation%>" readonly required><br>
 
             <label for="Company_Name">5. Enter Company Name</label>
             <input type="text" name="Company_Name" value="<%=exp.Company_Name%>" required><br>
@@ -110,5 +111,8 @@
             
             <button type="submit">update</button>
         </form>
+        <%}else{%>
+            <h2>Please login or go to profile page</h2>
+        <%}%>
     </body>
 </html>

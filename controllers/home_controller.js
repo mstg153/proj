@@ -102,13 +102,6 @@ module.exports.article = function(req,res){
     });
 }
 
-module.exports.creators= function (req,res) {
-    return res.render('creators', {
-        // layout:false
-
-        title:"Creators"
-    });
-}
 
 // module.exports.filter = function(req,res){
 //     let year = req.body.years;

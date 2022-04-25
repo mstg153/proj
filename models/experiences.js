@@ -113,6 +113,10 @@ const expSchema = new mongoose.Schema({
     status:{
         type:Number,
         default:0
+    },
+    message:{
+        type:String,
+        default:""
     }
 },{
     timestamps: true

@@ -61,12 +61,18 @@
         </div> -->
         <div class="buttons">
             <a href="../users/form">Publish an article</a>
+            <%if(locals.user.role == -1 || locals.user.role == 0){%>
+              <a href= "../users/updateprofile">Update Profile</a>
+          <%}%>
             <%if(locals.user.role == 1 || locals.user.role == 2){%>
                 <a href= "../users/verifyexp">verify experience</a>
             <%}%>
             <%if(locals.user.role == 2){%>
                 <a href= "../users/verifyusers">verify USERS</a>
             <%}%>
+            <%if(locals.user.role == 1 || locals.user.role == 2){%>
+              <a href= "../users/choosestu">Choose Students</a>
+          <%}%>
         </div>
       </div>
       
@@ -76,93 +82,74 @@
     <!-- Articles section  -->
     <section class="articles-section">
       <div class="section-heading">
-        <h1>Top Articles</h1>
+        <h1>Articles which are Published</h1>
       </div>
-      <div class="section-body">
-        <div class="article-cards-section">
-          <div class="article-card">
-            <div class="article-content">
-              <div>
-                <div class="article-name"><h2>Article Title</h2></div>
-                <div class="article-desctiption">
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Quo, beatae <a href="../Article/read_articles.html">read more ...</a>
-                  </p>
-                </div>
+      
+        <%for (exp of experience){%>
+          <%if(exp.status == 1 ){%>
+          <div class="section-body">
+              <div class="article-cards-section">
+                  <div class="article-card">
+                      <div class="article-content">
+                        <div>
+                          <div class="article-name"><h2><%= exp.Company_Name%>  | <%=exp.yearofGraduation%></h2></div>
+                          <div class="article-desctiption">
+                            <%  { %>
+                                <p><%= exp.experience.slice(0,100) %>
+                                <a href="/articles/?id=<%=exp._id%>" target="_blank">read more ...</a></p>
+                              <% } %> 
+                          </div>
+                        </div>
+                        <div>
+                          <div class="article-publisher"><%=exp.Student_Name %></div>
+                          <div class="published-date"><i>published on :</i> <%=exp.updatedAt.toISOString().slice(0,10) %></div>
+                        </div>
+                      </div>
+                      <div class="article-image">
+                          <img src="/img/002.jpg" alt="" />
+                      </div>
+                  </div>
               </div>
-              <div>
-                <div class="article-publisher">Sai Teja</div>
-                <div class="published-date">20 Sept, 2021</div>
-              </div>
-            </div>
-            <div class="article-image">
-              <img src="../assets/img/002.jpg" alt="" />
-            </div>
           </div>
-
-          <div class="article-card">
-            <div class="article-content">
-              <div>
-                <div class="article-name"><h2>Article Title</h2></div>
-                <div class="article-desctiption">
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Quo, beatae <a href="../Article/read_articles.html">read more ...</a>
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div class="article-publisher">Sai Teja</div>
-                <div class="published-date">20 Sept, 2021</div>
-              </div>
-            </div>
-            <div class="article-image">
-              <img src="../assets/img/002.jpg" alt="" />
-            </div>
-          </div>
-
-          <div class="article-card">
-            <div class="article-content">
-              <div>
-                <div class="article-name"><h2>Article Title</h2></div>
-                <div class="article-desctiption">
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Quo, beatae <a href="../Article/read_articles.html">read more ...</a>
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div class="article-publisher">Sai Teja</div>
-                <div class="published-date">20 Sept, 2021</div>
-              </div>
-            </div>
-            <div class="article-image">
-              <img src="../assets/img/002.jpg" alt="" />
-            </div>
-          </div>
-        </div>
-        <div class="quotes-section">
-          <div class="for-bg">
-            <!-- <img src="../assets/img/quote.jpg" alt=""> -->
-          </div>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-              voluptate.
-            </p>
-            <cite>- John Wick</cite>
-          </div>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-              voluptate.
-            </p>
-            <cite>- John Wick</cite>
-          </div>
-        </div>
+          <%}%>
+      <%}%>
+      <br>
+       <!-- UNVerified Students Expereince*/ -->
+      <div class="section-heading">
+        <h1>Articles which are yet to be Published</h1>
       </div>
+      <%for (exp of experience){%>
+        <%if(exp.status == 0 ){%>
+        <div class="section-body">
+            <div class="article-cards-section">
+                <div class="article-card">
+                    <div class="article-content">
+                        <div>
+                        <div class="article-name"><h2 style="color: red;"><%=exp.message%></h2></div>
+                        <h2><%= exp.Company_Name%>  | <%=exp.yearofGraduation%> </h2>
+                        <div class="article-desctiption">
+                            <%  { %>
+                                <p><%= exp.experience.slice(0,100) %>
+                                <a href="../users/editexp/?id=<%=exp._id%>" target="_blank"><button> edit </button></a></p>
+                              <% } %>
+                            
+                            
+                        </div>
+                        </div>
+                        <div>
+                        <!-- <div class="article-publisher"><%=exp.Student_Name %></div> -->
+                        <div class="published-date"><i>published on :</i> <%=exp.updatedAt.toISOString().slice(0,10) %></div>
+                        </div>
+                    </div>
+                    <div class="article-image">
+                        <img src="/img/002.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%}%>
+    <%}%>
+      
     </section>
 
     
